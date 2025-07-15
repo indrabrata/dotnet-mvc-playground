@@ -1,8 +1,28 @@
 @* This is to import the spesific model that used in this view *@
-@model dotnet_mvc_playground.Models.Item
+@* Razor is a markup syntax used in .net core to embed the cs file into html file *@
+@* Razor directive is a special command that tells the Razor engine how to handle rendering, layout, imports, or compile-time behavior. *@
+@model dotnet_mvc_playground.Models.Item 
 
 @{
-
+  var message = "Hello world";
+  var fruits = new List<String> {"apple", "mango", "berry"};
+  var isLoggedIn = true;
 }
 
 <p>This is the item : @Model.Id and @Model.Name</p>
+<p>@message</p>
+<ul>
+  @foreach(var fruit in fruits)
+  {
+    <li>@fruit</li>
+  }
+</ul>
+
+@if (isLoggedIn)
+{
+  <p>Welcome Back!</p>
+}
+else
+{
+  <p>Please Login</p>
+}
